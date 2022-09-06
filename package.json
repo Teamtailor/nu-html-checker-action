@@ -11,6 +11,10 @@
     "playwright": "^1.25.1"
   },
   "scripts": {
-    "test": "node playwright.js"
+    "test": "node playwright.js",
+    "build": "ncc build index.js --license LICENSE"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0"
   }
 }

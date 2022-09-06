@@ -10,5 +10,8 @@ outputs:
   report-url:
     description: 'URL to the report'
 runs:
-  using: 'node16'
-  main: 'index.js'
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v2
+    - run: npx playwright install --with-deps chromium
+    - run: node dist/index.js
