@@ -1,0 +1,14 @@
+name: 'Nu HTML Checker'
+description: 'Validates an URL for HTML errors'
+inputs:
+  url:
+    description: 'URL to validate'
+    required: true
+outputs:
+  errors-count:
+    description: 'The amount of validation errors found'
+  report-url:
+    description: 'URL to the report'
+runs:
+  using: 'node16'
+  main: 'index.js'

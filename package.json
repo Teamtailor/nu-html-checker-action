@@ -1,0 +1,16 @@
+{
+  "name": "nu-html-checker-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Teamtailor/nu-html-checker-action.git",
+  "author": "Oskar Eriksson <oskar@teamtailor.com>",
+  "license": "MIT",
+  "node": "16.17.0",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "playwright": "^1.25.1"
+  },
+  "scripts": {
+    "test": "node playwright.js"
+  }
+}
