@@ -15,7 +15,5 @@ runs:
     - uses: actions/checkout@v2
     - run: npx playwright install --with-deps chromium
       shell: bash
-    - run: cd ${{ inputs.working_directory }}
-      shell: bash
-    - run: node ./dist/index.js
+    - run: node ${GITHUB_ACTION_PATH}/dist/index.js
       shell: bash
