@@ -14,4 +14,6 @@ runs:
   steps:
     - uses: actions/checkout@v2
     - run: npx playwright install --with-deps chromium
+      shell: bash
     - run: node dist/index.js
+      shell: bash
