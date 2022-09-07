@@ -5,9 +5,9 @@ inputs:
     description: 'URL to validate'
     required: true
 outputs:
-  errors-count:
+  ERROR_COUNT:
     description: 'The amount of validation errors found'
-  report-url:
+  REPORT_URL:
     description: 'URL to the report'
 runs:
   using: 'composite'

@@ -20,8 +20,8 @@ const playwright = require('playwright');
 
     console.log('Errors count', errorsCount);
 
-    core.setOutput('errors-count', errorsCount);
-    core.setOutput('report-url', reportUrl);
+    core.setOutput('ERROR_COUNT', errorsCount);
+    core.setOutput('REPORT_URL', reportUrl);
   } catch (error) {
     core.setFailed(error.message);
   }
