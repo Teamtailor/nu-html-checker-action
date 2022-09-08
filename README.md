@@ -18,7 +18,8 @@ The amount of validation errors found
 URL to the report
 
 ## Example usage
-
-uses: actions/hello-world-javascript-action@v1.1
+```
+uses: actions/hello-world-javascript-action@v1.8
 with:
   url: 'https://example.com'
+```
