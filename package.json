@@ -7,11 +7,10 @@
   "license": "MIT",
   "node": "16.17.0",
   "dependencies": {
-    "@actions/core": "^1.9.1",
     "playwright": "^1.25.1"
   },
   "scripts": {
-    "test": "node playwright.js",
+    "test": "act workflow_dispatch -e payload.json",
     "build": "ncc build index.js --license LICENSE"
   },
   "devDependencies": {

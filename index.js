@@ -1,28 +1,25 @@
-const core = require('@actions/core');
 const playwright = require('playwright');
 
+const fs = require('fs');
+
 (async () => {
-  try {
-    const url = core.getInput('URL');
+  // const url = process.argv[3];
 
-    const browser = await playwright.chromium.launch();
-    const page = await browser.newPage();
+  const browser = await playwright.chromium.launch();
+  const page = await browser.newPage();
 
-    // const reportUrl = `https://validator.nu/?doc=${url}`;
-    const reportUrl =
-      'https://validator.nu/?doc=https://accessibilitydemo.teamtailor.app';
-    console.log('Navigating to', reportUrl);
-    await page.goto(reportUrl);
+  // // const reportUrl = `https://validator.nu/?doc=${url}`;
+  const reportUrl =
+    'https://validator.nu/?doc=https://accessibilitydemo.teamtailor.app';
+  console.log('Navigating to', reportUrl);
+  await page.goto(reportUrl);
 
-    await page.waitForSelector('#results');
-    const errorsCount = await page.locator('#results .error').count();
-    await browser.close();
+  await page.waitForSelector('#results');
+  const errorsCount = await page.locator('#results .error').count();
+  await browser.close();
 
-    console.log('Errors count', errorsCount);
+  console.log('Errors count', errorsCount);
 
-    core.setOutput('ERROR_COUNT', errorsCount);
-    core.setOutput('REPORT_URL', reportUrl);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+  fs.writeFileSync('errors-count.txt', errorsCount);
+  fs.writeFileSync('report-url.txt', reportUrl);
 })();

@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
     inputs:
-      URL:
+      url:
         description: 'URL to validate'
         type: string
         required: true
@@ -16,3 +16,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Test action
         uses: ./
+        id: test
+      - name: Echo GITHUB_ENV
+        shell: bash
+        run: |
+          echo "REPORT_URL: ${{ env.REPORT_URL }}"
+      - name: Echo outputs
+        shell: bash
+        run: |
+          echo "ERROR COUNT: ${{ steps.test.outputs.error-count }}"
+          echo "REPORT URL: ${{ steps.test.outputs.report-url }}"

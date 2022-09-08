@@ -5,15 +5,21 @@ inputs:
     description: 'URL to validate'
     required: true
 outputs:
-  ERROR_COUNT:
+  error-count:
     description: 'The amount of validation errors found'
-  REPORT_URL:
+    value: ${{ steps.validate.outputs.error-count }}
+  report-url:
     description: 'URL to the report'
+    value: ${{ steps.validate.outputs.report-url }}
 runs:
   using: 'composite'
   steps:
     - uses: actions/checkout@v2
     - run: npx playwright install --with-deps chromium
       shell: bash
-    - run: node ${GITHUB_ACTION_PATH}/dist/index.js
-      shell: bash
+    - run: |
+        node ${GITHUB_ACTION_PATH}/dist/index.js ${{ inputs.url }}
+        echo "REPORT_URL=$(cat report-url.txt)" >> $GITHUB_ENV
+        echo "ERRORS_COUNT=$(cat errors-count.txt)" >> $GITHUB_ENV
+      id: validate
+      shell: sh
