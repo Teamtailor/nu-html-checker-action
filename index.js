@@ -20,6 +20,6 @@ const fs = require('fs');
 
   console.log('Errors count', errorsCount);
 
-  fs.writeFileSync('errors-count.txt', errorsCount);
+  fs.writeFileSync('errors-count.txt', `${errorsCount}`);
   fs.writeFileSync('report-url.txt', reportUrl);
 })();
