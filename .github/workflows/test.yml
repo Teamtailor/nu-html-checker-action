@@ -17,10 +17,6 @@ jobs:
       - name: Test action
         uses: ./
         id: test
-      - name: Echo GITHUB_ENV
-        shell: bash
-        run: |
-          echo "REPORT_URL: ${{ env.REPORT_URL }}"
       - name: Echo outputs
         shell: bash
         run: |

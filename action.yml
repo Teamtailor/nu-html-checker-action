@@ -19,7 +19,7 @@ runs:
       shell: bash
     - run: |
         node ${GITHUB_ACTION_PATH}/dist/index.js ${{ inputs.url }}
-        echo "REPORT_URL=$(cat report-url.txt)" >> $GITHUB_ENV
-        echo "ERRORS_COUNT=$(cat errors-count.txt)" >> $GITHUB_ENV
+        echo "::set-output name=error-count::$(cat error-count.txt)"
+        echo "::set-output name=report-url::$(cat report-url.txt)"
       id: validate
       shell: sh

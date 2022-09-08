@@ -52474,8 +52474,10 @@ const fs = __nccwpck_require__(7147);
 
   console.log('Errors count', errorsCount);
 
-  fs.writeFileSync('errors-count.txt', `${errorsCount}`);
+  fs.writeFileSync('error-count.txt', `${errorsCount}`);
   fs.writeFileSync('report-url.txt', reportUrl);
+  // fs.writeFileSync('error-count.txt', `66`);
+  // fs.writeFileSync('report-url.txt', 'https://reporturl.com');
 })();
 
 })();
