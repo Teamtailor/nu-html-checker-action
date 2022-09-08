@@ -52457,14 +52457,12 @@ const playwright = __nccwpck_require__(2205);
 const fs = __nccwpck_require__(7147);
 
 (async () => {
-  // const url = process.argv[3];
+  const url = process.argv[2];
 
   const browser = await playwright.chromium.launch();
   const page = await browser.newPage();
 
-  // // const reportUrl = `https://validator.nu/?doc=${url}`;
-  const reportUrl =
-    'https://validator.nu/?doc=https://accessibilitydemo.teamtailor.app';
+  const reportUrl = `https://validator.nu/?doc=${url}`;
   console.log('Navigating to', reportUrl);
   await page.goto(reportUrl);
 
@@ -52476,8 +52474,6 @@ const fs = __nccwpck_require__(7147);
 
   fs.writeFileSync('error-count.txt', `${errorsCount}`);
   fs.writeFileSync('report-url.txt', reportUrl);
-  // fs.writeFileSync('error-count.txt', `66`);
-  // fs.writeFileSync('report-url.txt', 'https://reporturl.com');
 })();
 
 })();

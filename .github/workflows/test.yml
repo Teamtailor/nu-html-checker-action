@@ -17,6 +17,8 @@ jobs:
       - name: Test action
         uses: ./
         id: test
+        with:
+          url: 'https://example.com'
       - name: Echo outputs
         shell: bash
         run: |
