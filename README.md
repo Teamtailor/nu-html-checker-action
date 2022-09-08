@@ -10,7 +10,7 @@ This action runs https://validator.nu/ on a given URL and outputs the amount of 
 
 ## Outputs
 
-### `errors-count`
+### `error-count`
 
 The amount of validation errors found
 ### `report-url`
